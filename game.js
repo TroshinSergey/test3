@@ -8,8 +8,6 @@ var Snake = (function () {
   var tileCount = 6;
   var gridSize = 500/tileCount;
   
-  //var grd=[tileCount][tileCount];
-  //  
   var grd1 = new Array(tileCount);
   for (var i = 0; i < grd1.length; i++) {
     grd1[i] = new Array(tileCount).fill(1);
