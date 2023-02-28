@@ -26,6 +26,13 @@ body {
   top: -4px;
 }
 
+.chevron1 {
+  color: white;
+  font-size: 30px;
+  top: -20px;
+  position: relative;
+}
+
 .chevron::before {
   border-style: solid;
   border-width: 8px 8px 0 0;

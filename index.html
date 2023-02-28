@@ -2,17 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="widt=device-width, initial-scale=1">
 	<title>Snake Game</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div id="game-container">
-		<canvas id="gc" class="game-canvas" width="400" height="400"></canvas>
+		<canvas id="gc" class="game-canvas" width="500" height="500"></canvas>
 	</div>
 	<div class="keys">
+	  <a class="arr up" onclick="Snake.action('up')">
+	    <b class="chevron1">esc</b></a>
 	  <a class="up arr" onclick="Snake.action('up')">
 	    <i class="chevron up"></i></a>
+	  <a class="arr up" onclick="Snake.action('up')">
+	    <b class="chevron1">entr</b></a>   
 	  <br />
 	  <a class="left arr" onclick="Snake.action('left')">
 	    <i class="chevron left"></i></a>
