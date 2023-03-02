@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 00;
 }
 
 .game-canvas {
@@ -23,7 +23,7 @@ body {
 
 .up {
   position: relative;
-  top: -4px;
+  top: -04px;
 }
 
 .chevron1 {
