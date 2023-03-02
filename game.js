@@ -191,7 +191,7 @@ var Snake = (function () {
       return reward;
     }
   }
-  /*
+  
   function keyPush (evt) {
     switch(evt.keyCode) {
       case 37: //left
@@ -225,7 +225,7 @@ var Snake = (function () {
       break;
     }
   }
-  */
+  
   return {
     start: function (fps = 15) {
       window.onload = setup;
