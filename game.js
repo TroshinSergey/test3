@@ -1,13 +1,15 @@
 var Snake = (function () {
 
-  const INITIAL_TAIL = 8;
-  var fixedTail = true;
+  const INITIAL_TAIL = 08;
+ // var fixedTail = true;
 
   var intervalID;
 
   var tileCount = 6;
-  var gridSize = 500/tileCount;
+  var gridSize = 500/tileCount; 
   
+  //var grd=[tileCount][tileCount];
+  //  
   var grd1 = new Array(tileCount);
   for (var i = 0; i < grd1.length; i++) {
     grd1[i] = new Array(tileCount).fill(1);
@@ -27,9 +29,9 @@ var Snake = (function () {
   var velocity = { x:0, y:0 };
   var player = { x: INITIAL_PLAYER.x, y: INITIAL_PLAYER.y };
 
-  var walls = false;
+  //var walls = false;
 
-  var fruit = { x:1, y:1 };
+  //var fruit = { x:1, y:1 };
 
   //var trail = [];
   var tail = INITIAL_TAIL;
@@ -47,6 +49,16 @@ var Snake = (function () {
     ctx = canv.getContext('2d');
 
     game.reset();
+  }
+  
+  function isbusy(x, y) {
+    if(grd0[x][y]==1)return -1;
+    if(grd0[x][y]==2)return -2;
+    return 0;
+  }
+  
+  function cntx(x, y){
+    
   }
 
   var game = {
@@ -91,10 +103,14 @@ var Snake = (function () {
         //}
       },
       right: function () {
-        //if (lastAction != ActionEnum.left){
           velocity.x = 1;
           velocity.y = 0;
-        //}
+      },
+      esc: function() {
+        grd0[player.x][player.y] = 2;
+      },
+      entr: function() {
+        grd0[player.x][player.y] = 1;
       }
     },
     /*
@@ -107,16 +123,8 @@ var Snake = (function () {
     },
 
     loop: function () {
-
-      reward = -0.1;
-/*
-      
-*/
-      var stopped = velocity.x == 0 && velocity.y == 0;
-
       player.x += velocity.x;
       player.y += velocity.y;
-      
       velocity.x=0;
       velocity.y=0;
       /*
@@ -144,12 +152,12 @@ var Snake = (function () {
       ctx.stroke();
 
 
-      if(!stopped) {
+       
         ctx.fillStyle = 'rgba(200,200,200,0.2)';
         ctx.font = "small-caps 14px Helvetica";
         //ctx.fillText("(esc) reset", 24, 356);
         //ctx.fillText("(space) pause", 24, 374);
-      }
+      
 
       ctx.fillStyle = 'green';
       
@@ -186,10 +194,10 @@ var Snake = (function () {
       ctx.fillText("points: " + points, 288, 40);
       ctx.fillText("top: " + pointsMax, 292, 60);
       */
-      return reward;
+      return 0;//reward;
     }
   }
-  /*
+  
   function keyPush (evt) {
     switch(evt.keyCode) {
       case 37: //left
@@ -223,7 +231,7 @@ var Snake = (function () {
       break;
     }
   }
-  */
+  
   return {
     start: function (fps = 15) {
       window.onload = setup;
@@ -245,17 +253,18 @@ var Snake = (function () {
         } else {
           document.removeEventListener('keydown', keyPush);
         }
-      },
-      wall: function (state) {
-        walls = state;
-      },
-      tileCount: function (size) {
-        tileCount = size;
-        gridSize = 400 / tileCount;
-      },
-      fixedTail: function (state) {
-        fixedTail = state;
       }
+    //  },
+     // wall: function (state) {
+     //   walls = state;
+     // },
+      //tileCount: function (size) {this
+       // tileCount = size;
+      //  gridSize = 400 / tileCount;
+      
+    //  fixedTail: function (state) {
+     //   fixedTail = state;
+    //  }
     },
 
     action: function (act) {
@@ -285,32 +294,16 @@ var Snake = (function () {
           break;
       }
     },
-
+/*
     pause: function () {
       velocity.x = 0;
       velocity.y = 0;
     },
-/*
-    clearTopScore: function () {
-      pointsMax = 0;
-    },
-
-    data: {
-      player: player,
-      fruit: fruit,
-      //trail: function () {
-      //  return trail;
-      //}
-    },
-
-    info: {
-      tileCount: tileCount
-    }
     */
   };
 
 })();
 
 Snake.start(8);
-//Snake.setup.keyboard(false);
-Snake.setup.fixedTail(false);
+Snake.setup.keyboard(true);
+//Snake.setup.fixedTail(false);
