@@ -1,7 +1,10 @@
 var Snake = (function () {
 
   const INITIAL_TAIL = 08;
+
  // var fixedTail = true;
+
+
 
   var intervalID;
 
