@@ -1,7 +1,7 @@
 var Snake = (function () {
 
   const INITIAL_TAIL = 08;
-  var intervalID;
+  var intervalID;//dev
 
   var tileCount = 6;
   var gridSize = 500 / tileCount;
